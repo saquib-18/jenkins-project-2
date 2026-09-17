@@ -4,7 +4,7 @@ student_name = "Student001"
 exam_name = "DevOps Assessment"
 
 total_marks = 100
-marks_obtained = 85
+marks_obtained = 35
 
 percentage = (marks_obtained / total_marks) * 100
 
