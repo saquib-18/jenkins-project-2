@@ -6,26 +6,27 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/saquib-18/jenkins-project-2.git'
+                    url: ''
             }
         }
 
         stage('Build') {
             steps {
-                bat 'python -m py_compile app.py'
+                bat '"C:/Users/User/AppData/Local/Programs/Python/Python314/python.exe" -m py_compile app.py'
+
                 echo 'Application build successful.'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'python -m unittest test_app.py -v'
+                bat '"C:/Users/User/AppData/Local/Programs/Python/Python314/python.exe" -m unittest discover -v'
             }
         }
 
         stage('Generate Report') {
             steps {
-                bat 'python generate_report.py'
+                bat '"C:/Users/User/AppData/Local/Programs/Python/Python314/python.exe" generate_report.py'
             }
         }
 
@@ -46,7 +47,7 @@ pipeline {
 
     post {
         success {
-            echo 'Build, Test, Archive and Deployment completed successfully.'
+            echo 'Build, Test, Report Generation, Archiving and Deployment completed successfully.'
         }
 
         failure {
